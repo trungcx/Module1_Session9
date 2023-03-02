@@ -7,20 +7,35 @@
     <title>Session 9</title>
 </head>
 <body>
-    <label for="">Amount</label>
-    <input type="text" id="valueInput"><br>
-    <label for="">FromCurrency</label>
-    <select name="" id="FromCurrency">
+    <article class="convertMoney__art">
+        <p>Bai 1: Chuyen doi tien te</p>
+        <label for="">Amount</label>
+        <input type="text" id="valueInput"><br>
+        <label for="">FromCurrency</label>
+        <select name="" id="FromCurrency">
         <option value="VND">VND</option>
         <option value="USD">USD</option>
-    </select><br>
-    <label for="">ToCurrency</label>
-    <select name="" id="ToCurrency">
+        </select><br>
+        <label for="">ToCurrency</label>
+        <select name="" id="ToCurrency">
         <option value="USD">USD</option>
         <option value="VND">VND</option>
-    </select><br>
-    <button onclick="convertMoney()">Convert</button>
-    <p id="result"></p>
+        </select><br>
+        <button onclick="convertMoney()">Convert</button>
+        <p id="result"></p>
+    </article>
+    <article class="calculator__art">
+        <p>Bai 2: May tinh</p>
+        <input type="text" id="firstElement">
+        <span id="operElement">   </span>
+        <input type="text" id="secondElement"><br>
+        <button onclick="mathAdd()">Add (+)</button>
+        <button onclick="mathSub()">Sub (-)</button>
+        <button onclick="mathMul()">Mul (*)</button>
+        <button onclick="mathDiv()">Div (/)</button><br>
+        <span>Result : </span>
+        <span id="mathResult"></span>
+    </article>
 
     <script>
         let convertRate = 20000;
@@ -38,6 +53,31 @@
             }
             console.log(valueInput);
         }
+        let firstElement, secondElement;
+        function getValue(){
+            firstElement = document.getElementById("firstElement").value;
+            console.log(firstElement);
+            secondElement = document.getElementById("secondElement").value;
+            console.log(secondElement);
+        }
+        function mathAdd(){
+            getValue();
+            document.getElementById("mathResult").innerHTML = Number.parseFloat(firstElement)+Number.parseFloat(secondElement);
+        }
+        function mathSub(){
+            getValue();
+            document.getElementById("mathResult").innerHTML = Number.parseFloat(firstElement)-Number.parseFloat(secondElement);
+        }
+        function mathMul(){
+            getValue();
+            document.getElementById("mathResult").innerHTML = Number.parseFloat(firstElement)*Number.parseFloat(secondElement);
+        }
+        function mathDiv(){
+            getValue();
+            document.getElementById("mathResult").innerHTML = Number.parseFloat(firstElement)/Number.parseFloat(secondElement);
+        }
+        
+
 </script>
 </body>
 </html>
